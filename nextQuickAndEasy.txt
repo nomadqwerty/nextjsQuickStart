@@ -1,0 +1,64 @@
+nextjs a react js frame work for production.
+makes building fullstack enterprise react apps.
+
+// react is a client development library.
+
+// nextjs builds up on react, more features, easier development process.
+
+nextjs solves alot of problems faced in building react applications. state management, routing , authentication.
+
+// nextjs features:
+1. built in ssr: build and assemble client side code on the server and then serves it to the browswer. but the react code works like a regular react spa.
+
+2. File  based routing: routing is used to change the pages of the rendered app with the url. next supports routing, in next it done by specifying a pages folder that will hold different components. this is acalled file based routing.
+
+3. Fullstack react app: next js makes it possible to add a backend node app to our react front end app.
+
+
+// start up a fresh next app: 'npx create-next-app'
+// start dev server: 'npm run dev'
+
+// what to cover.
+foundation:
+file based routing
+page pre-Rendering
+data fetching
+combine react and next
+Api routes and rest api design.
+
+advanced:
+optimization
+underhood study and analysis
+deployment and config
+authentication.
+
+
+/////////////////////next course features
+
+// File based routing.
+i. understand file based routing
+ii. static and dynamic routes
+iii. pages navigation
+
+i. understand file based routing: used to construct pages and different routes for navigation
+
+  /pages: pages referes to the root directory. www.domain.com/, 
+
+    index.js- the react component is to be shown at the root path of the app. www.domain.com/
+
+    about.js- any other file / sub directory outside of index.js, will be come a route on its own. www.domain.com/about, these are called name/static routes
+
+    /products- sub directory routing. directory routes need index.js file to sereve as root path in the dir's route. sub dirs are used for nesting routes
+        index.js - root file 'www/domain.com/products'
+        [id].js - [] is used for dynamic routing, [] operator will hold a variable that will be used for dynamic routing(something like params in express)- www.domain.com/products/67864323443, for routes that will change, id,emails, etc.
+
+
+        
+
+
+
+
+
+
+
+
