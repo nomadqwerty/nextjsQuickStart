@@ -46,11 +46,51 @@ i. understand file based routing: used to construct pages and different routes f
 
     index.js- the react component is to be shown at the root path of the app. www.domain.com/
 
+    // name/ static route
     about.js- any other file / sub directory outside of index.js, will be come a route on its own. www.domain.com/about, these are called name/static routes
 
+  // nested routes 
     /products- sub directory routing. directory routes need index.js file to sereve as root path in the dir's route. sub dirs are used for nesting routes
         index.js - root file 'www/domain.com/products'
         [id].js - [] is used for dynamic routing, [] operator will hold a variable that will be used for dynamic routing(something like params in express)- www.domain.com/products/67864323443, for routes that will change, id,emails, etc.
+
+  if nested routes are needed, its more efficient to create a new folder within the pages directory. 
+
+
+  // dynamic routes: these are special routes whos name is susceptible to changes. or the path name is unique for different use cases.
+  id url params: ids, slugs, etc.
+  // the path can accept any value, because dynamic paths are like variables and can be assigned any value.
+
+  if the route passed into the url has a file with a matching name, it will be prioritised over dynamic path.
+
+  // the unique pathname can be accessed through a hook that nexjs provides: useRouter Hook. the useRouter hook exposes a special object in this object the query property will hold the dynamic path value passed into the url. 
+  //nb: take a look at the useRouter Hook object.
+
+  // next also makes it posiibel to have dynamic nested paths.
+
+  dynamic neste paths are directories that are named with []
+  \ clients: this routes will list all clients
+    \ [id]: this id is a dynamic nested path for each client.
+      clientIdProjects.js: in the client/id/projects this path can used to list all projects done for a particular client.
+
+
+  //// catch all routes. within the [] add ... before name of dynamic path, [...slug]
+
+
+  ////// navigating with the Link component
+  // with the normal link tag: if use for anvigation. it will cause a reload and makes a new http req. because of the new request the app will reload and loose the state and data stored in contxt. and also it isnt perfomant friendly for spa's
+
+  // best practice is to use Link
+  <Link href='url'>Text</Link>
+
+  // dynamic navigation
+
+
+
+
+
+
+
 
 
         
