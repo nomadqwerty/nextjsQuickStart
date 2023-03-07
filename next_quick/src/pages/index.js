@@ -1,5 +1,6 @@
 import Link from "next/link";
 const Home = () => {
+  const id = "0898977979";
   return (
     <div>
       The Home Page
@@ -12,6 +13,9 @@ const Home = () => {
         </li>
         <li>
           <Link href="/about">about</Link>
+        </li>
+        <li>
+          <Link href={`/seller/${id}`}>dynamic route</Link>
         </li>
       </ul>
     </div>

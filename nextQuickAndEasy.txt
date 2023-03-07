@@ -32,9 +32,8 @@ underhood study and analysis
 deployment and config
 authentication.
 
-
+/////////////////////////////////////////////////////////////////////////
 /////////////////////next course features
-
 // File based routing.
 i. understand file based routing
 ii. static and dynamic routes
@@ -63,29 +62,33 @@ i. understand file based routing: used to construct pages and different routes f
 
   if the route passed into the url has a file with a matching name, it will be prioritised over dynamic path.
 
-  // the unique pathname can be accessed through a hook that nexjs provides: useRouter Hook. the useRouter hook exposes a special object in this object the query property will hold the dynamic path value passed into the url. 
+  // the unique pathname can be accessed through a hook that nexjs provides: useRouter Hook from 'next/router'. the useRouter hook exposes a special object. in this object the query property will hold the dynamic path value passed into the url. 
   //nb: take a look at the useRouter Hook object.
 
-  // next also makes it posiibel to have dynamic nested paths.
+  // next also makes it possible to have dynamic nested paths.
 
-  dynamic neste paths are directories that are named with []
+  dynamic nested paths are sub directories that are named with []
   \ clients: this routes will list all clients
     \ [id]: this id is a dynamic nested path for each client.
       clientIdProjects.js: in the client/id/projects this path can used to list all projects done for a particular client.
 
 
-  //// catch all routes. within the [] add ... before name of dynamic path, [...slug]
+  //// catch all routes. within the [] add ... before name of dynamic path, [...slug]: this is useful for crafting url with many dynamic queries
 
 
   ////// navigating with the Link component
-  // with the normal link tag: if use for anvigation. it will cause a reload and makes a new http req. because of the new request the app will reload and loose the state and data stored in contxt. and also it isnt perfomant friendly for spa's
+  // with the normal link tag: if used for navigation. it will cause a reload and makes a new http req. because of the new request the app will reload and loose the state and data stored in contxt. and also it isnt perfomant friendly for spa's
 
-  // best practice is to use Link
+  // best practice is to use Link: built in nextjs component for linking pages.
   <Link href='url'>Text</Link>
 
-  // dynamic navigation
+  // dynamic navigation: navigate to dynamic routes. used the same as Link for static routes just with a dynamic href, possible make use of templates to make it more dynamic.
 
+  // programmatic navigation: we can navigate programmatically with the router.push(url) method or router.replace(url) method. with push the user can return to the previous page, with replace the user cant return to the user page.
 
+  ////// adding custom 404 page to the root(pages) folder. a special file that is named 404. it will hold a 404 component.
+
+/////////////////////////////////////////////////////////////////////////
 
 
 
