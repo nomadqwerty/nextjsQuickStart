@@ -89,7 +89,16 @@ i. understand file based routing: used to construct pages and different routes f
   ////// adding custom 404 page to the root(pages) folder. a special file that is named 404. it will hold a 404 component.
 
 /////////////////////////////////////////////////////////////////////////
+// add components to src folder but not to pages folder, pages rae used for page components
 
+// adding styles: we can use styles like in react, we can also use css modules. 
+1 name css file like 'name.module.css
+2 import css file into component, by give it a name not just simple imports. 
+import classes from './css/name.module.css';
+
+3 the objects gives acces to css classes that we then attach to our jsx/html.
+
+benefits for module css files is that styles are scoped to the component that imports the files.
 
 
 
