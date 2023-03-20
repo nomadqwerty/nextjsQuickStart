@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Button from "../ui/button";
 import classes from "./css/item.module.css";
+import AddressIcon from "../icons/";
 const Item = (props) => {
   const { title, image, date, location, id } = props;
 
@@ -27,7 +29,7 @@ const Item = (props) => {
           </div>
         </div>
         <div className={classes.actions}>
-          <Link href={exploreLink}> Explore event</Link>
+          <Button link={exploreLink}> Explore Events</Button>
         </div>
       </div>
     </li>
