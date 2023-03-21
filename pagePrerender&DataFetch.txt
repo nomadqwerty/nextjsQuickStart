@@ -1,0 +1,15 @@
+/////////////////////////////////////////////////
+page Pre rendering.
+
+// traditional react require javascript to be executed before content shows up. the webapp is first built and executed in the browser then async js(if any) will then be executed(networking,promises,timers) which will in total take some time. in the case of seo(google crawl bots) crawlers do not execute javascript and because seo needs our content it wont be seen by the bots.
+
+// how nextjs pre rendering works
+
+// because of the down side for traditional react webapps. next solves this by pre generating the content. nextjs pre renders the full html with all the data that might be needed and serves this complete but static html content. this boosts load speed and bots do not need to execute js to be able to see our content.
+
+// but we also want an interactive webapp thus react. so next just doesnt send back the complete(but static) html content. after it has sent the html content it will then send the javascript associated with the html. this process is called hydration. the javascript is injected in to the page which then makes our app a fully interactive react app.
+
+
+// there are two types of pre rendering:
+1 static generation
+2 server side rendering

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Button from "../ui/button";
 import classes from "./css/item.module.css";
-import AddressIcon from "../icons/";
+import AddressIcon from "../icons/address-icon";
 const Item = (props) => {
   const { title, image, date, location, id } = props;
 

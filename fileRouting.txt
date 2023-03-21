@@ -1,0 +1,68 @@
+/////////////////////////////////////////////////////////////////////////
+/////////////////////next course features
+// File based routing.
+i. understand file based routing
+ii. static and dynamic routes
+iii. pages navigation
+
+i. understand file based routing: used to construct pages and different routes for navigation
+
+  /pages: pages referes to the root directory. www.domain.com/, 
+
+    index.js- the react component is to be shown at the root path of the app. www.domain.com/
+
+    // name/ static route
+    about.js- any other file / sub directory outside of index.js, will be come a route on its own. www.domain.com/about, these are called name/static routes
+
+  // nested routes 
+    /products- sub directory routing. directory routes need index.js file to sereve as root path in the dir's route. sub dirs are used for nesting routes
+        index.js - root file 'www/domain.com/products'
+        [id].js - [] is used for dynamic routing, [] operator will hold a variable that will be used for dynamic routing(something like params in express)- www.domain.com/products/67864323443, for routes that will change, id,emails, etc.
+
+  if nested routes are needed, its more efficient to create a new folder within the pages directory. 
+
+
+  // dynamic routes: these are special routes whos name is susceptible to changes. or the path name is unique for different use cases.
+  id url params: ids, slugs, etc.
+  // the path can accept any value, because dynamic paths are like variables and can be assigned any value.
+
+  if the route passed into the url has a file with a matching name, it will be prioritised over dynamic path.
+
+  // the unique pathname can be accessed through a hook that nexjs provides: useRouter Hook from 'next/router'. the useRouter hook exposes a special object. in this object the query property will hold the dynamic path value passed into the url. 
+  //nb: take a look at the useRouter Hook object.
+
+  // next also makes it possible to have dynamic nested paths.
+
+  dynamic nested paths are sub directories that are named with []
+  \ clients: this routes will list all clients
+    \ [id]: this id is a dynamic nested path for each client.
+      clientIdProjects.js: in the client/id/projects this path can used to list all projects done for a particular client.
+
+
+  //// catch all routes. within the [] add ... before name of dynamic path, [...slug]: this is useful for crafting url with many dynamic queries
+
+
+  ////// navigating with the Link component
+  // with the normal link tag: if used for navigation. it will cause a reload and makes a new http req. because of the new request the app will reload and loose the state and data stored in contxt. and also it isnt perfomant friendly for spa's
+
+  // best practice is to use Link: built in nextjs component for linking pages.
+  <Link href='url'>Text</Link>
+
+  // dynamic navigation: navigate to dynamic routes. used the same as Link for static routes just with a dynamic href, possible make use of templates to make it more dynamic.
+
+  // programmatic navigation: we can navigate programmatically with the router.push(url) method or router.replace(url) method. with push the user can return to the previous page, with replace the user cant return to the user page.
+
+  ////// adding custom 404 page to the root(pages) folder. a special file that is named 404. it will hold a 404 component.
+
+/////////////////////////////////////////////////////////////////////////
+// add components to src folder but not to pages folder, pages are used for page components
+
+// adding styles: we can use styles like in react, we can also use css modules. 
+1 name css file like 'name.module.css
+2 import css file into component, by giving it a name not just simple imports. 
+import classes from './css/name.module.css';
+
+3 the objects gives acces to css classes that we then attach to our jsx/html.
+
+benefits for module css files is that styles are scoped to the component that imports the files.
+
