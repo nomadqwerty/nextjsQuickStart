@@ -13,3 +13,29 @@ page Pre rendering.
 // there are two types of pre rendering:
 1 static generation
 2 server side rendering
+
+// static generation.
+// this means that we pre generate a page on build time, all the html css content that is to sent to client are pregenerated before time.
+// we are allowed to write code that only runs in nodejs, and cant write client side code.
+
+
+
+basically we have to do two things
+1. tell next js what content to pre render.
+2. tell next js what data is needed by the presendered content
+
+//nb nextjs prerenders static content by default, but not dynamically generated content(needs javascript). so one thing is handled. we also need to be able to tell nextjs when to not pre render a page.
+
+getStaticProps is a functions that confirms to nextjs that we want a page to prerendered and to set a static state (data) the content will need. getStaticProps doesnnt tell nextjs to prerendere it only confirms that we want a pre render.
+
+getStaticProps is an async funtion, this function runs in build time(the static site is built on the server then sent to client), in the space of time we can execute server side code. server side code that we will use to generate our static data(reading data from a json file stored in our next app folder). we cant access client apis because the static site is built on the server(nodejs)
+
+export async getStaticProps(){
+    // return an object with the props key always
+    return {
+        props:{
+            static:data
+
+        }
+    }
+}
