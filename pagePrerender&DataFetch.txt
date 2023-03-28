@@ -14,6 +14,7 @@ page Pre rendering.
 1 static generation
 2 server side rendering
 
+//////////////////////////////////////////////////////////////////////
 // static generation.
 // this means that we pre generate a page on build time, all the html css content that is to sent to client are pregenerated before time.
 // we are allowed to write code that only runs in nodejs, and cant write client side code.
@@ -31,6 +32,8 @@ getStaticProps is a functions that confirms to nextjs that we want a page to pre
 getStaticProps is an async funtion, this function runs in build time(the static site is built on the server then sent to client), in the space of time we can execute server side code. server side code that we will use to generate our static data(reading data from a json file stored in our next app folder). we cant access client apis because the static site is built on the server(nodejs)
 
 export async getStaticProps(){
+    // scope to write nodejs code.
+
     // return an object with the props key always
     return {
         props:{
@@ -39,3 +42,64 @@ export async getStaticProps(){
         }
     }
 }
+
+
+//for next to ssg our app, run next build command. this generates an optimized version of our app, in that we also will have the ssg pages. 
+
+//  when implementing ssg with static props, if we have an application that will need to update the props server by getStaticProps function, we will always have to rebuild the webapp, so that getStaticProps will run again and we will then see new props.
+
+// there is a way to update props without having to rebuild the webapp.
+// isg: incremental static generation.
+
+// isg first pre generate the pages to be served, but with a few cahnges and specifications we can tell next to regenerate the pages(with new changes) per incoming requests. we also have to specify the time next shoudl regenerate the pages. per seconds.
+
+export async getStaticProps(){
+    // scope to write nodejs code.
+
+    // return an object with the props key always
+    return {
+        props:{
+            static:data
+
+        },
+        // in the object we return and a second field called revalidate(specify the time frame for regeneration)
+        revalidate:120
+    }
+}
+
+// ssg only runs on build time. but with isg the same code that runs during build time, will continually be run on server event after its built and sent to client.
+
+// more object options for getStaticProps
+
+we can specifiy a field called notFound (bool), if true it will return a 404, we also can specify a redirect field, this will redirect the client to another page.
+
+export async getStaticProps(){
+
+    if(someCoditionIsMet){
+        return {
+            redirect:{
+                destination:'/pathToGo'
+            }
+        }
+    }
+    if(someCoditionIsMet){
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props:{
+            static:data
+
+        },
+        revalidate:120
+    }
+}
+
+
+// get static props on dynamic pages, with dynamic pages we have acces to context params in getStatic function. from this we can get our path params. while running server code.
+
+// getStaticPath: 
+
+ 
