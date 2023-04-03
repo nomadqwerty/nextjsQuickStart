@@ -46,12 +46,12 @@ export async getStaticProps(){
 
 //for next to ssg our app, run next build command. this generates an optimized version of our app, in that we also will have the ssg pages. 
 
-//  when implementing ssg with static props, if we have an application that will need to update the props server by getStaticProps function, we will always have to rebuild the webapp, so that getStaticProps will run again and we will then see new props.
+//  when implementing ssg with static props, if we have an application that will need to update the props constantly we will always have to rebuild the static content to be served, so that getStaticProps will run again and we will then see new props.
 
-// there is a way to update props without having to rebuild the webapp.
+// there is a way to update props without having to rebuild the static content manually.
 // isg: incremental static generation.
 
-// isg first pre generate the pages to be served, but with a few cahnges and specifications we can tell next to regenerate the pages(with new changes) per incoming requests. we also have to specify the time next shoudl regenerate the pages. per seconds.
+// isg first pre generate the pages to be served. still uses getStaticProps function but with a few changes and specifications we can tell getStaticProps to run on interval and regenerate the pages(with new changes) per incoming requests with specified amount of timeframe. we also have to specify the timeframe that next should regenerate the pages. per seconds.
 
 export async getStaticProps(){
     // scope to write nodejs code.
@@ -67,7 +67,7 @@ export async getStaticProps(){
     }
 }
 
-// ssg only runs on build time. but with isg the same code that runs during build time, will continually be run on server event after its built and sent to client.
+// ssg only runs on build time. but with isg the same code that runs during build time, will continually be run on server even after its built and sent to client.
 
 // more object options for getStaticProps
 
@@ -100,6 +100,34 @@ export async getStaticProps(){
 
 // get static props on dynamic pages, with dynamic pages we have acces to context params in getStatic function. from this we can get our path params. while running server code.
 
-// getStaticPath: 
+// getStaticPaths: when we need to render content for dynamic paths(params), we use getStaticProps with getStaticPath
 
- 
+// getStaticPaths is a function that will return a set of set params(dynamic paths value), getStaticProps will then run for every param specified. if we have 4 params getStaticProps will run 4 times.
+// it basically is a function that passes the params to getStaticProps function to perfom further operations with the data.
+
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { pid: "p1" } },
+      { params: { pid: "p2" } },
+      { params: { pid: "p3" } },
+    ],
+    fallback: false,
+  };
+}
+
+// when SSGing dynamic paths, next js pre fetches our data for all specified params, then once our static content has been built and sent to the client. nextjs will also send all the pre fetched data for all the static paths.  
+
+
+// fallback: this property is usefull, for when we want to SSG many dynamic paths. pre generating multiple pages is not optimal, we need to pregenerate content that is important or frequently view by users. but that doesnt mean we should leave out the remaining content. if fallback is set to true, any param not specified in paths object will be generated in realtime. 
+// to make use of the fallback property, our react component needs a fallback html content.
+
+// fallback has a 3rd option 'blocking' this is a string that tells nextjs to render the unspecified params as a normal page, wait for the component to be fully loaded before continuing with the request.
+
+// add fallback 404 page if data for given params is not found.
+
+
+/////////////////////////////////////////////////////////////////////////
+// server side rendering. with next js we can build ssr react apps. next js gives us access to a function, which will be passed a request object(request related to the current url being requested by the client). with access to request we can the run operations. the function doesnt run on build time but when a request hits the nextjs server.
+
+// getServerSideProps: function runs for every incoming request that requests that page. works just like getStaticProps, it has to return the exact same object format.

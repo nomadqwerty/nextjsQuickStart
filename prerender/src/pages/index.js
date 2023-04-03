@@ -1,10 +1,15 @@
 import fs from "fs/promises";
+import Link from "next/link";
 
 // client code
 function HomePage(props) {
   const { products } = props;
   const list = products.map((e, i) => {
-    return <li key={i}>{e.title}</li>;
+    return (
+      <li key={i}>
+        {e.title} <Link href={`/p${i + 1}`}>Click me</Link>
+      </li>
+    );
   });
   return <ul>{list}</ul>;
 }
