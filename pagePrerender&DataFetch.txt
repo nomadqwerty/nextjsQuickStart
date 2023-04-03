@@ -131,3 +131,5 @@ export async function getStaticPaths() {
 // server side rendering. with next js we can build ssr react apps. next js gives us access to a function, which will be passed a request object(request related to the current url being requested by the client). with access to request we can the run operations. the function doesnt run on build time but when a request hits the nextjs server.
 
 // getServerSideProps: function runs for every incoming request that requests that page. works just like getStaticProps, it has to return the exact same object format.
+
+// getServerSideProps runs on the server side, so its optimal to perfom networking operations on the server side, and leave client side for html content.
