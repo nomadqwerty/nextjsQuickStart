@@ -98,7 +98,7 @@ export async getStaticProps(){
 }
 
 
-// get static props on dynamic pages, with dynamic pages we have acces to context params in getStatic function. from this we can get our path params. while running server code.
+// get static props on dynamic pages,  we have acces to context params in getStaticProps function. from this we can get our path params. while running server code.
 
 // getStaticPaths: when we need to render content for dynamic paths(params), we use getStaticProps with getStaticPath
 
@@ -133,3 +133,23 @@ export async function getStaticPaths() {
 // getServerSideProps: function runs for every incoming request that requests that page. works just like getStaticProps, it has to return the exact same object format.
 
 // getServerSideProps runs on the server side, so its optimal to perfom networking operations on the server side, and leave client side for html content.
+
+// the getServerSideProps context is a request and response object also has acces to params.
+
+// uses of getServerSideProps:
+// 1. used to write code that will interact with the incoming request and perfom certain operations before next responds with the jsx content.
+
+// 2. used to write code that will interact with the outgoing response object and perfom certain operations before next responds with the jsx content and the response object is sent.
+
+// 3. used to write that is required for the component, data fetch from db and so on.
+
+// there is no need to use getStaticPaths with getServerSideProps, in fact we cant use it together. because getStaticPaths is used to serve static param values(manually typed dynamic paths) to getStaticProps and getStaticProps is used to pregenerate content. this operation is done and the data is store befor any client requests for the page. meanwhile getServerSideProps only runs on the next server, so it can only get triggered when a request hits the server. so there is no pregenerating done with getServerSideProps.
+
+
+// client-side data fetching.
+// despite the benefits of Static site generation and server side data fetching, they do not cover all instances of data fetching. because not all data can be prerendered(realtime data) and our app may also need to fetch data based off how a user interacts with the app(fetching data for different parts of our app)
+
+// why client-side data fetching?
+// 1. need realtime data.
+// 2. highly specific user data.
+// 3. partial data (data used in little segments of an app, ie dashboard app)
