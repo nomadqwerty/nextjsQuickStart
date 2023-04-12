@@ -29,6 +29,36 @@ const DUMMY_EVENTS = [
     image: "/images/networking-events.jpg",
     isFeatured: true,
   },
+  {
+    id: "e4",
+    title: "Internet of thing basics",
+    description:
+      "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
+    location: "My Street 12, 10115 Broke City",
+    date: "2022-04-10",
+    image: "/images/networking-events.jpg",
+    isFeatured: true,
+  },
+  {
+    id: "e5",
+    title: "a discuss on Artificial intelligence",
+    description:
+      "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
+    location: "My Street 12, 10115 Broke City",
+    date: "2022-04-10",
+    image: "/images/networking-events.jpg",
+    isFeatured: true,
+  },
+  {
+    id: "e6",
+    title: "decentralised web3 data transmissions",
+    description:
+      "You probably need no help with networking in general. But focusing your energy correctly - that is something where most people can improve.",
+    location: "My Street 12, 10115 Broke City",
+    date: "2022-04-10",
+    image: "/images/networking-events.jpg",
+    isFeatured: true,
+  },
 ];
 
 export function getFeaturedEvents() {

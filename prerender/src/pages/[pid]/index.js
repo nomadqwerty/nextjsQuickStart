@@ -43,7 +43,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
   return {
-    paths: [{ params: { pid: "p1" } }],
+    paths: [{ params: { id: "p1" } }],
     fallback: true,
   };
 }

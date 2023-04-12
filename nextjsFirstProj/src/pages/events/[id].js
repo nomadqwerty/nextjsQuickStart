@@ -6,15 +6,13 @@ import EventLogistics from "@/components/event-detail/event-logistics";
 import EventContent from "@/components/event-detail/event-content";
 import ErrorAlert from "@/components/error-alert/error-alert/error-alert";
 
-const Event = () => {
-  const router = useRouter();
-  const id = router.query.id;
-  const event = getEventById(id);
+const Event = (props) => {
+  const { event } = props;
 
   if (!event) {
     return (
       <ErrorAlert>
-        <p>Not found</p>
+        <p>this may take some time</p>
       </ErrorAlert>
     );
   }
@@ -33,5 +31,30 @@ const Event = () => {
     </div>
   );
 };
+export async function getStaticProps(context) {
+  const { params } = context;
+  console.log(params);
+  const event = getEventById(params.id);
 
+  if (!event) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { event },
+    revalidate: 60,
+  };
+}
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { id: "e1" } },
+      { params: { id: "e2" } },
+      { params: { id: "e3" } },
+    ],
+    fallback: true,
+  };
+}
 export default Event;

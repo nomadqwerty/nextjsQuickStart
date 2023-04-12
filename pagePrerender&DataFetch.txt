@@ -98,7 +98,7 @@ export async getStaticProps(){
 }
 
 
-// get static props on dynamic pages,  we have acces to context params in getStaticProps function. from this we can get our path params. while running server code.
+// get static props on dynamic pages,  we have acces to context params in getStaticProps function. from this we can get our path params. while running server code. 
 
 // getStaticPaths: when we need to render content for dynamic paths(params), we use getStaticProps with getStaticPath
 
@@ -123,6 +123,8 @@ export async function getStaticPaths() {
 // to make use of the fallback property, our react component needs a fallback html content.
 
 // fallback has a 3rd option 'blocking' this is a string that tells nextjs to render the unspecified params as a normal page, wait for the component to be fully loaded before continuing with the request.
+
+// if fallback is set to false, get staticpaths will tell nextjs that all the params that are page will need has been specified and any other page will be a 404, to avoid this set fallback true and handled any unfound data in staticProps funct.
 
 // add fallback 404 page if data for given params is not found.
 
