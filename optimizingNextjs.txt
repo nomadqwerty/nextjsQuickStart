@@ -1,0 +1,10 @@
+// adding head data(meta, title tags)
+
+use the Head Component from 'next/head'
+
+add elements like so
+
+<head>
+    <title></title>
+
+<Head/>

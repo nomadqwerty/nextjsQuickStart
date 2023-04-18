@@ -158,3 +158,5 @@ export async function getStaticPaths() {
 
 
 // using fetch in getStaticProps. we can make use of the fetch api to retrieve data that will be used to pregenerate a page. this is possible because as we know getStaticProps runs on the server during the build time of a page. the all this actions are stored ahead of time so it can be stored and used for incoming requests for the page.
+
+// note use get server side props for generating data for slug urls(multiple params). 
