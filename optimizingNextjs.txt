@@ -1,3 +1,4 @@
+/////////////////////////////////////////////////////
 // adding head data(meta, title tags)
 
 use the Head Component from 'next/head'
@@ -8,3 +9,36 @@ add elements like so
     <title></title>
 
 <Head/>
+
+// headers can be added dynamically. Because we are able to use the header components we can dynamically add titles for different pages.
+
+// using app.js for setting dynamic headers. _app.js is our root component. this is used for every page in the application.
+// we can use the _app.js for setting app wide settings and configs.
+
+// using the _document.js. the _document file represents our app shell. its like the index.html file in a normal react app. the _document file is used to configure the document object. with the _document file we can configure the html and also head element of our app, ie adding a html attribute, add raw html content to our document, creating modals
+
+// to structure _document.js
+
+import Document,{Html,Head, Main, NextScipts} from "next/document"
+
+// use a class based component.
+
+class MyDocument extends Document{
+    render(){
+        return (
+            <Html>
+                <Head></Head>
+
+                <body>
+                    <Main/>
+                    <NextScripts/>
+                </body>
+            </Html>
+        )
+    }
+}
+
+export default MyDocument
+
+
+// optimize images, 
