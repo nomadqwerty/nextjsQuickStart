@@ -41,4 +41,15 @@ class MyDocument extends Document{
 export default MyDocument
 
 
-// optimize images, 
+// optimize images, use the Image component.
+the Image accepts all the normal img attribute, and two more(width and height), this tell next the size of image to return based on the device that makes the request.
+
+// for every screen size a new request is made to our nextjs server to request a more optimal image based on the device.
+
+   <Image
+        src={img.src}
+        alt="alternate"
+        width={75}
+        height={100}
+        className={styles.classId}
+    ></Image>
