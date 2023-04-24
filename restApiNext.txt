@@ -1,0 +1,15 @@
+// with next js, we can create api endpoints for our app. next is built on node and node is made for server side javascript(building apis)
+
+in the pages folder, creat an api folder(called only api), then in the api folder we create handler functions for request to the backend route.
+
+const endpoint = (req, res) => {
+  res.statusCode = 200;
+  res.json({
+    status: "success",
+    message: "endpoint working",
+  });
+};
+
+export default endpoint;
+
+// the handler will run for all methods that is used in request. to create handler for unique methods use the req.method property, this returns the method of request. works like express.
