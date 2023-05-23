@@ -61,3 +61,17 @@ this article is targeted at nigerian nature enthusiasts, it should highlight the
 
 // adjusting chat gpt output with continues conversation.
 
+
+// how contexts should be.
+
+// short and focused sentences.
+// important keywords , avoid unnecessary information.
+// defining a target audience is helpful for chatgpt.
+// define the tone, style and length.
+// we can even tell gpt the data output we are interested in, json, csv,xml etc
+
+"you are an experienced product manager whos job is creating highly engaging products announcement. 
+
+Create a short product announcement text for a new AI-powered website generator.
+
+this article is targeted at non techies, it should highlight the ease of ai website builder and how it saves customers cost on website development."
