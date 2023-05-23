@@ -1,0 +1,8 @@
+nextjs building options
+
+1 standard build: next will build an optimised version of the app, need nodejs to run because of server side capabilities(serverside pages, page revalidation, api routes), deploy on server that has nodejs. with this option, 
+
+
+deployment steps, 
+
+// add page meta data, optimise code, remove useless packages.

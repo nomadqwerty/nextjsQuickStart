@@ -13,3 +13,17 @@ const endpoint = (req, res) => {
 export default endpoint;
 
 // the handler will run for all methods that is used in request. to create handler for unique methods use the req.method property, this returns the method of request. works like express.
+
+
+// pre-rendering data from internal rest api.
+// when making requests from within the app, we can just execute the handler function by our selves. this is more optimal. this is for GET requests. 
+
+// dynamic routes, with param values 
+// file name should be like dynamic page files. [id].js
+// we can access param values from req.query object.
+// get the value and perfom needed operations.
+
+// for routes with multi params use the ... operator, [...id].js.
+
+
+

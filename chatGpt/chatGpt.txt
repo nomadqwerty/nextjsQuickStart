@@ -1,0 +1,63 @@
+// TODO: upgrade to GPT4.
+
+learning and training with gpt3.5
+
+// prompts
+// there are fact based prompts.
+
+like: 
+
+who is the first democratic president of nigeria?
+
+how many citizen are in nigeria?
+
+who is fela kuti?
+
+// there are also context-aware prompts, resembling a flow of dialoge.
+
+like:
+
+what is moi-moi?
+
+can i have the recipe for it?
+
+i need a shoppinglist of all ingredients.
+
+////////////////////////////////////////////////////////////////////////////// prompt engineering.
+prompts in gpt, are basically inputs, my input determines my output.
+when passing inputs to gpt, its good to provide context in the input.
+this is good because chatgpt is a nlu and its context aware.
+
+ie "write me an article about hiking"
+
+ie "write me an article about hiking up hills in platue state at 5 am in the blistering cold".
+
+consider both prompts, the first is plain and lacks context, while the second has context and this will result in a better output from gpt.
+
+// core prompt elements.
+// 1. goal 
+// 2. context
+
+// the goal is basically the main aim. still consider the above inputs, the main goal is to write an article, in this case about hiking. a goal is chatgpts main output objective.
+
+// the context on the other hand can be divided into two, the role and (constraints and extra information)
+
+the role is basically a persona we want chatgpt to emulate. for example we can further imprve the second input by adding a role.
+
+"you are an experienced nigerian hiker with years of competing in long distance running. 
+
+write me an article about hiking up hills in platue state at 5 am in the blistering cold."
+
+the constraints and extra information, these should part of any good prompt, this provides chat gpt with more info on what to do, more detailed micro objects or micro goals.
+
+let us improve our above prompt.
+
+"you are an experienced nigerian hiker with years of competing in long distance running. 
+
+write me an article about hiking up hills in platue state at 5 am in the blistering cold.
+
+this article is targeted at nigerian nature enthusiasts, it should highlight the beauty of the terrain in platue state and the benefits of regular out door activity."
+
+
+// adjusting chat gpt output with continues conversation.
+
