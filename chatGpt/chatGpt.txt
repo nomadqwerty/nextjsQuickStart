@@ -75,3 +75,7 @@ this article is targeted at nigerian nature enthusiasts, it should highlight the
 Create a short product announcement text for a new AI-powered website generator.
 
 this article is targeted at non techies, it should highlight the ease of ai website builder and how it saves customers cost on website development."
+
+// zero, onr or few shot prompting. this is basically giving chatgpt and example output.
+
+to write an article in a certain way based on the provided example.
