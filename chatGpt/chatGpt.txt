@@ -76,6 +76,18 @@ Create a short product announcement text for a new AI-powered website generator.
 
 this article is targeted at non techies, it should highlight the ease of ai website builder and how it saves customers cost on website development."
 
-// zero, onr or few shot prompting. this is basically giving chatgpt and example output.
+// zero, onr or few shot prompting. this is basically giving chatgpt and example output, to write an article in a certain way based on the provided example.
 
-to write an article in a certain way based on the provided example.
+// providing output templates, we can specify the output template with examples.
+
+// prividing cues and hints, we can provide a bullet point to chatgpt, ie.
+
+the article will start like this: the take away of this data is.
+
+// use """ to seperate instructions, examples from goals.
+
+
+/////////////////////////// more techniques, ask-question-before-answer prompts. this prompts trigger chatgpt to ask for extra information before it produces the output.
+
+
+/// perspective prompting. 
